@@ -1,0 +1,32 @@
+
+
+=============================================
+             INITIAL REPORT                  
+=============================================
+ Variable Boundaries :  Rigid
+ Population size            : 100
+ Total no. of generations   : 1000
+ Cross over probability     : 0.9000
+ Mutation probability (real): 0.5000
+ Number of real-coded variables  : 8
+ Total Runs to be performed : 1
+ Exponent (n for SBX)       :    2.00
+ Exponent (n for Mutation)  :  100.00
+ Lower and Upper bounds     :
+     0.0000   <=   x_real[1]   <=   1.0000
+     0.0000   <=   x_real[2]   <=   1.0000
+     0.0000   <=   x_real[3]   <=   1.0000
+     0.0000   <=   x_real[4]   <=   1.0000
+     0.0000   <=   x_real[5]   <=   1.0000
+     0.0000   <=   x_real[6]   <=   1.0000
+     0.0000   <=   x_real[7]   <=   1.0000
+     0.0000   <=   x_real[8]   <=   1.0000
+=================================================
+
+Run No. 1 
+===================================================
+Max =  0.03401  Min =  0.03189   Avg =  0.03311
+Mutations (real)= 399748 ; Mutations (binary) = 0 ; Crossovers = 45117No feasible solution found!
+
+===================================================
+

@@ -1,0 +1,4 @@
+The adjoining programs is the implementation of reliability based min risk subject to 1 constraint on the returns.
+normal.c - distributions are normal so the standard method is used
+anormal.c - historical simulation is used
+

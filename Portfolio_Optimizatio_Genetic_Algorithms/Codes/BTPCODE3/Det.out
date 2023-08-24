@@ -1,0 +1,34 @@
+
+
+=============================================
+             INITIAL REPORT                  
+=============================================
+ Variable Boundaries :  Rigid
+ Population size            : 200
+ Total no. of generations   : 400
+ Cross over probability     : 0.9000
+ Mutation probability (real): 0.5000
+ Number of real-coded variables  : 8
+ Total Runs to be performed : 1
+ Exponent (n for SBX)       :    2.00
+ Exponent (n for Mutation)  :  100.00
+ Lower and Upper bounds     :
+     0.0000   <=   x_real[1]   <=   1.0000
+     0.0000   <=   x_real[2]   <=   1.0000
+     0.0000   <=   x_real[3]   <=   1.0000
+     0.0000   <=   x_real[4]   <=   1.0000
+     0.0000   <=   x_real[5]   <=   1.0000
+     0.0000   <=   x_real[6]   <=   1.0000
+     0.0000   <=   x_real[7]   <=   1.0000
+     0.0000   <=   x_real[8]   <=   1.0000
+=================================================
+
+Run No. 1 
+===================================================
+Max =  1.37801  Min =  1.61125   Avg =  1.50314
+Mutations (real)= 320513 ; Mutations (binary) = 0 ; Crossovers = 36044
+Best ever fitness: 1.534170 (from generation : 284)
+Variable vector: Binary | Real -> | 0.000000 0.677941 0.265270 0.000000 0.000005 0.056314 0.000108 0.825348
+Constraint value: 0.000362 0.000402 0.000000| Overall penalty: 0.000000
+===================================================
+

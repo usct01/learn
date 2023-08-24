@@ -1,0 +1,6 @@
+The adjoining C program is a reliability-based implementation of the portfolio optimization problmem as follows:
+
+max [ Return - gamma*Risk]
+s.t P[Return>=R*] > beta1
+P[Risk<=R*] > beta2
+w1 + w2 ..... + wn = 1
