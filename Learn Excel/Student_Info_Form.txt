@@ -1,0 +1,184 @@
+In this Excel exercise, you will learn to write some code in VBA(Visual Basic For Application) to manipulate records in Excel spreadsheet and work with VBA user form to build graphic user interface application. 
+In case that you have a lot of records in your data sheets,  manipulating records--add new, update, save, delete, move, and find record is hard. With VBA, you can solve this problem.
+Step1: Display Developer tab
+Go to Excel Options-->Popular-->Tick on Show developer tab in the ribbon checkbox
+
+Step2:In your data sheet that you want to store your records(in my case, I store my
+
+students' records, type header texts as in the picture below.
+
+Step3:Open VBA Editor
+Click Developer tab-->Click Visual Basic or press Alt+F11
+
+Step4:Design form
+
+-Create a form by clicking Insert UserForm icon in the ribbon(next to Ms. Excel icon) and name it as Frmstudent
+
+-Drag and drop one label control from Toolbox on the top area of the form and type
+
+text: Student Information Form. If you don't see Toolbox, you can view it by going to
+
+View menu then click on Toolbox
+
+-Drag and drop additional six labels from the Toolbox and type text on those labels:
+
+ID, Name, Sex, DOB, POB, and Phone respectively. You also make those texts bold.
+
+-Drag and drop six textboxes on the form  and arrange them next to the corresponding labels( see the picture). These textboxes will enable you to input data and save it in your data sheet after you click Save button.
+
+-Select the first textbox by clicking on it then press F4 to display its property window. In the property window, look for Name field and erase the default text and type new text: txtid
+
+-Select the second textbox and type text: txtname in its Name field
+
+-Select the third textbox and type text: txtsex in its Name field
+
+-Select the fourth textbox and type text: txtdob in its Name field
+
+-Select the fifth textbox and type text: txtpob in its Name field
+
+-Select the sixth textbox and type text: txtphone in its Name field
+
+-Drag and drop four command buttons from the Toolbox on the form
+
+-Select the first button, open its property window, locate the Caption field,  and type New
+
+-Select the second button, open its property window, locate the Caption field, and type Save
+
+-Select the third button, open its property window, locate the Caption field, and type Delete
+
+ -Select the fourth button, open its property window, locate the Caption field, and type
+
+Update. These buttons will be used to clear text from textboxes, save, delete, and update the data
+
+-Drag and drop two additional command buttons on the from. For the first button, type Previous for its Caption field, and another button type Next. These buttons will be used to move records backward and forward.
+
+Step 4: write code
+
+-Right-Click on the form and click View code
+
+-In General section (in the top outside procedures), declare two variables:
+
+dim c as integer 'store the number of rows which contain data
+
+dim t as integer 'store row index using in the movement of records
+
+-Type code in form's UserFrom_Initialize sub-procedure:
+
+c = 1
+
+t = 2
+
+Call MoveRow(t)
+
+While Cells(c, 1) <> ""
+
+c = c + 1
+
+Wend
+
+This code works when the form load. It initializes variables and display the first record on the form. It also counts the number of rows which contain data.
+
+-Double-click on New button and attach the following code:
+
+txtid.Text = ""
+
+txtname.Text = ""
+
+txtsex.Text = ""
+
+txtdob.Text = ""
+
+txtpob.Text = ""
+
+txtphone.Text = ""
+
+This code works when you click the New button. It will clear values on the textboxes.
+
+-Double-click on Save button and attach the following code:
+
+Call setval(c)
+c = c + 1
+Workbooks("exercise_VBA.xlsm").Save
+
+This code works when you click the Save button. It will assign values of textboxes, and save them.
+
+-Create a sub-procedure called setval():
+
+Sub setval(ByVal i As Integer)
+Cells(i, 1) = txtid.Text
+Cells(i, 2) = txtname.Text
+Cells(i, 3) = txtsex.Text
+Cells(i, 4) = txtdob.Text
+Cells(i, 5) = txtpob.Text
+Cells(i, 6) = txtphone.Text
+End Sub
+
+This procedure will assign values of textboxes to the cells in your data sheet when you click the Save button. setval() procedure has one parameter(i) to accept the blank row immediately below the the last row filled with data.
+
+-Double-click on the Delete button and attach the following code:
+
+For i = 1 To c
+
+If Cells(i, 1) = txtid.Text Then
+
+Rows(i).Delete
+
+c = c - 1
+
+Workbooks("exercise_VBA.xlsm").Save
+
+End If
+
+Next
+
+This code works when you click the Delete button. It will delete current record.
+
+-Double-click on the Update button and attach the following code:
+
+For i = 1 To c
+If Cells(i, 1) = txtid.Text Then
+Call setval(i)
+Workbooks("exercise_VBA.xlsm").Save
+End If
+Next
+
+This code works when you click the Update button. It will save changes made
+
+to the textboxes' values.
+
+-Double-click on the Previous button and attach the following code:
+
+If t >= 3 Then
+t = t - 1
+Call MoveRow(t)
+
+End If
+
+This code works when you click the Previous button.
+
+It will move record one by one backward.
+
+-Double-click on the Next button and attach the following code:
+
+If t < c Then
+
+Call MoveRow(t)
+
+t = t + 1
+
+End If
+
+This code works when you click the Next button. It will move record one by one forwad.
+
+-Create a sub-procedure MoveRow():
+
+Sub MoveRow(t As Integer)
+txtid.Text = Cells(t, 1)
+txtname.Text = Cells(t, 2)
+txtsex.Text = Cells(t, 3)
+txtdob.Text = Cells(t, 4)
+txtpob.Text = Cells(t, 5)
+txtphone.Text = Cells(t, 6)
+End Sub
+
+Now you are ready to get the form up and test.
